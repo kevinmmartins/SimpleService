@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.simple.service.entity.SimpleServiceOrder;
+import com.simple.service.entity.to.EntityId;
 import com.simple.service.util.ServiceUtil;
 
 @RestController
@@ -51,18 +52,16 @@ public class SimpleServiceOrderApi {
 	}
 
 	@RequestMapping(value = "/so/label/{label}", method = RequestMethod.GET)
-	public ResponseEntity<Long> findByLabel(@PathVariable("label") String label) {
-
-		Long simple = null;
+	public ResponseEntity<EntityId> findByLabel(@PathVariable("label") String label) {
 
 		try {
-			simple = ServiceUtil.getServiceIdByLabel(label, serviceOrderList);
+			SimpleServiceOrder simple = ServiceUtil.getServiceIdByLabel(label, serviceOrderList);
 
 			if (simple == null) {
 				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 			}
 
-			return new ResponseEntity<Long>(simple, HttpStatus.OK);
+			return new ResponseEntity<EntityId>(new EntityId(simple), HttpStatus.OK);
 
 		}
 

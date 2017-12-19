@@ -24,17 +24,9 @@ public class ServiceUtil {
 		return simple;
 	}
 
-	public static Long getServiceIdByLabel(final String label, final List<SimpleServiceOrder> serviceOrderList) {
-
-		Long simple = null;
-
-		SimpleServiceOrder serviceByLabel = getServiceByLabel(label, serviceOrderList);
-
-		if (serviceByLabel != null) {
-			simple = serviceByLabel.getId();
-		}
-
-		return simple;
+	public static SimpleServiceOrder getServiceIdByLabel(final String label,
+			final List<SimpleServiceOrder> serviceOrderList) {
+		return getServiceByLabel(label, serviceOrderList);
 	}
 
 }

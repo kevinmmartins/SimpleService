@@ -2,8 +2,8 @@ package com.simple.service.entity;
 
 import java.io.Serializable;
 
-public class SimpleServiceOrder implements Serializable{
-	
+public class SimpleServiceOrder implements Serializable, SimpleEntity {
+
 	/**
 	 * Always change after make some change
 	 */
@@ -11,9 +11,9 @@ public class SimpleServiceOrder implements Serializable{
 	private Long id;
 	private String label;
 	private String hierarchy;
-	
+
 	public SimpleServiceOrder() {
-		
+
 	}
 
 	public SimpleServiceOrder(Long id, String label, String hierarchy) {
@@ -46,6 +46,5 @@ public class SimpleServiceOrder implements Serializable{
 	public void setHierarchy(String hierarchy) {
 		this.hierarchy = hierarchy;
 	}
-	
 
 }
